@@ -3,6 +3,7 @@ class MainController < ApplicationController
   end
 
   def about
+    @created_by = "Hesham El Masry"
     render("about")
     end
   def hello

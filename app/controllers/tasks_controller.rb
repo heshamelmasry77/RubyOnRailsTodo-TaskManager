@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   def index
+    @tasks = ["one", "two", "three"]
   end
 
   def new
