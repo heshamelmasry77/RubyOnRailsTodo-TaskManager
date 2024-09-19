@@ -13,6 +13,15 @@ class TasksController < ApplicationController
   end
 
   def create
+    @task = Task.new(task_params)
+    if @task.save
+      redirect_to tasks_path, notice: "Task was successfully created."
+    else
+      # the "new" action is NOT being called here
+      # Assign any instance variables needed
+      # @count =  Task.count
+      render("new")
+    end
   end
 
   def edit
@@ -25,6 +34,14 @@ class TasksController < ApplicationController
   end
 
   def destroy
+  end
+
+  def task_params
+    params.require(:task).permit(
+      :name,
+      :position,
+      :completed,
+      :description)
   end
 
 end
