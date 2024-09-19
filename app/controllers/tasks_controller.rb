@@ -1,10 +1,7 @@
 class TasksController < ApplicationController
-  def index
-    # @page = params[:page].to_i
-    @tasks = Task.order(:position)
-  end
 
-  def new
+  def index
+    @tasks = Task.order(:position)
   end
 
   def show
@@ -12,6 +9,7 @@ class TasksController < ApplicationController
   end
 
   def new
+    @task = Task.new
   end
 
   def create
@@ -23,12 +21,10 @@ class TasksController < ApplicationController
   def update
   end
 
-  def destroy
-  end
-
   def delete
   end
 
-  def edit
+  def destroy
   end
+
 end
